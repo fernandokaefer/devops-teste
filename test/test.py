@@ -11,12 +11,12 @@ async def test_root():
 
 @pytest.mark.asyncio
 async def test_funcaoteste():
-    with patch("random_randint", return_value=12345):
+    with patch("src.main.random.randint", return_value=12345):
         result = await funcaoteste()
 
 
 @pytest.mark.asyncio
-async def test_create_estudante(estudante: Estudante):
+async def test_create_estudante():
     estudante_teste = Estudante(name="Fulano", curso="Curso 1", ativo=False)
     result = await create_estudante(estudante_teste)
     assert estudante_teste == result
